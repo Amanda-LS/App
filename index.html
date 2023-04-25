@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
-<!--The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code. THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION!
+<!--The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.
+Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code.
 Authors in chronological order of contribution:
   Tim Riedel
   Niam Kuttanna
-  Erin Camelon
+  Amanda Llanas
 Further Information:
   http://cns.utexas.edu/fri
-Brief summary of this code: [...]
-Known issues: [...]
-https://www.w3schools.com/w3css/default.asp
-https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
--->
+
 
   <!--Formatting source information and webpage title.-->
   <head>
-    <title>Frog Quiz</title>
+    <title>Amanda's App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="w3.css">
@@ -30,87 +27,95 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	var exampleVariable2 = 0;
 	var exampleVariable3 = 0;
 	
+	//addition function
 	function exampleFunction1()
 	{
 		// Assigns values to existing variables based on user input. The parseFloat() function converts string values to numerical values.
     		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
-		var smileyImage = document.createElement("img");
-		smileyImage.classList.add("imgclass");
+    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
 		
-		//depending on the variable the user chooses, a different image will be returned
-		if (exampleVariable1 == 1) {
-			smileyImage.src = "https://i.imgur.com/koukHFg.jpg";
-			document.getElementById("endResults").innerHTML = "Your hobby is sleeping!";
-		} else if (exampleVariable1 == 2) {
-			smileyImage.src = "https://i.imgur.com/vbM0OIZ.jpg"; 
-			document.getElementById("endResults").innerHTML = "Your hobby is writing!";
-		} else if (exampleVariable1 == 3) {
-			smileyImage.src = "https://i.imgur.com/48XsTup.png";
-			document.getElementById("endResults").innerHTML = "Your hobby is music!";
-		} else if (exampleVariable1 == 4) {
-			smileyImage.src = "https://i.imgur.com/nqlv1iK.jpg";
-			document.getElementById("endResults").innerHTML = "Your hobby is tums upping!";
-		}
+		exampleVariable3 = exampleVariable1 + exampleVariable2;
 		
-		document.getElementById("finalcontent").appendChild(smileyImage);
-
-		
-		console.log("Exfunc1 function was run.");
+		console.log("Addition function was run.");
 	}
-	
-	function exampleResultsFunction()
+	//subtraction function
+	function exampleFunction2()
 	{
-		var smileyImage = document.createElement("img");
-		smileyImage.src = "https://i.imgur.com/jctdkSS.png";
-		document.getElementById("finalcontent").appendChild(smileyImage);
-		document.getElementById("endresults").innerHTML = "Here's your hobby!";
-
+		exampleVariable1= parseFloat(document.getElementById("firstInputBox").value);
+		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 - exampleVariable2;
+		
+		console.log("Subtraction function was run.");
+	}	
+	//multiplication function
+	function exampleFunction3()
+	{
+		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
+    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 * exampleVariable2;
+		
+		console.log("Multiplication function was run.");
+	}
+	//division function 
+	function exampleFunction4()
+	{
+		exampleVariable1= parseFloat(document.getElementById("firstInputBox").value);
+		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 / exampleVariable2;
+		
+		console.log("Division function was run.");
+	}
+	//exponent function
+	function exampleFunction5()
+	{
+		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
+    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		exampleVariable3 = exampleVariable1 ** exampleVariable2;
+		
+		console.log("Exponent function was run.");
+		
+	}	
+	//Will display user's results based upon the calculational function they have utilized
+	function exampleResultsFunction()
+		{
 		document.getElementById("endResults").innerHTML = "Your final result is: " + exampleVariable3;
 		resetVariables();
 	}
-	
-	//reset variables functions erase the loaded image if someone goes back to the homepage and navigates back to another subpage, so multiple images do not appear on one page
+	// Below will reset the variables to 0
 	function resetVariables()
 	{
-		var newdiv = document.getElementById("finalcontent") 
-	    	newdiv.removeChild(newdiv.lastChild);
+		exampleVariable1 = 0;
+		exampleVariable2 = 0;
+		exampleVariable3 = 0;
 		
 	}
-	
-	function resetVariables2()
-	{
-		var newdiv = document.getElementById("Main") 
-	    	newdiv.removeChild(newdiv.lastChild);
-		
-	}
-	
-	function resetVariables3()
-	{
-		var newdiv = document.getElementById("Main3") 
-	    	newdiv.removeChild(newdiv.lastChild);
-		
-	}
-	
-	
+	//inserts a number of smiley and frowny faces on the alternate page after the user has inputted their select numbers
 	function insertImages()
 	{
-		var smileyImage = document.createElement("img");
-		smileyImage.classList.add("imgclass");
-		smileyImage.src = "https://i.imgur.com/olyt3su.png";
-		document.getElementById("Main").appendChild(smileyImage);
-		document.getElementById("Main2").innerHTML = "Meditation calms the mind and the soul!";
-	}
-	
-	//this function codes for the image and text on the subpage linked to the "I don't want to be a frog!" button
-	function insertImages2()
-	{
-		var smileyImage = document.createElement("img");
-		smileyImage.classList.add("imgclass");
-		smileyImage.src = "https://i.imgur.com/JuEe1ij.png";
-		document.getElementById("Main3").appendChild(smileyImage);
-		document.getElementById("Main4").innerHTML = "You are Toad from Frog and Toad!";
-	}
-</script>
+		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
+    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+		
+		for(let index  = 0; index < exampleVariable1; index++)
+		{	
+				var smileyImage = document.createElement("img");
+				smileyImage.src = "https://i.imgur.com/jctdkSS.png"; 
+				document.getElementById("specialContent").appendChild(smileyImage);
+
+		  }
+		  for(let index2 = 0; index2 < exampleVariable2; index2++)
+		  {
+		
+				var frownyImage= document.createElement("img");
+				frownyImage.src = "https://i.imgur.com/dVUqrSt.png";
+				document.getElementById("specialContent").appendChild(frownyImage);
+			  }
+		document.getElementById("contentResult").innerHTML = "You inserted " + exampleVariable1 + "smiley faces and " + exampleVariable2 + "frowny faces!"; 
+           }
+   </script>
   
   
  
@@ -118,11 +123,6 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <style>	
 .body {
      margin: 0 auto;
-}
-	
-.imgclass {
-     width: 300px;
-     height: 300px;
 }
 
 .page {
@@ -150,119 +150,230 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <div id="content" class="w3-container">
   	<!--Header!-->
 	<div id="header" class="w3-container w3-cyan">
-		<h1>Frog Quiz</h1>
+		<h1>Hobby Match!</h1>
 	</div>
 	
-	  <p>What's your hobby? Find out!</p>
+	  <p>Hello! This app was developed for entertainment purposes. Enjoy! </p>
+	  <a href="#one" class="w3-btn w3-cyan w3-round">Make a calculation</a>
+	  <!--Button for page 2--> 
+	  <a href="#two" class="w3-btn w3-cyan w3-round">What's my hobby?</a>
 	
-	  <a href="#one" class="w3-btn w3-grey w3-round">Get Started!</a>
-	
-	  <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is simply for fun and entertainment; the results do not reflect who you are as a person (or frog).</p>
+	  <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code. THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION!</p>
   
   
   
 <!--FIRST SUBPAGE-->
 <div id="one" class="page">
 	<div id="header2" class="w3-container w3-cyan">
-		<h1>Entertaining stuff to do when bored</h1>
+		<h1>Making a calculation</h1>
 	</div>
 	
   <center>
     
     	<div id="content2" class="w3-container">
-        	<p>What are you interested in?</p>    
+        	<p>What function would you like to perform?</p>    
     	</div>
 	
 	<!--Form element. This allows for user input in HTML.-->
 	<form>
 		<!--Label for first input field.-->
-		<label for="firstInputBox">Choose what interests you most:</label><br>
-		<!--User input box woth options.-->
-		<select id="firstInputBox">
-		  <option value=1>Sports</option>
-		  <option value=2>writing</option>
-		  <option value=3> music</option>
-		  <option value=4>Tums upping!</option>
-		</select></br>		
+		<label for="firstInputBox">Enter a number:</label><br>
+		<!--User input box.-->
+		<input type="number" id="firstInputBox" value="0"><br>
+		<!--Label for second input field.-->
+		<label for="secondInputBox">Enter another number:</label><br>
+		<!--User input box.-->
+		<input type="number" id="secondInputBox" value="0">
+		
 		<br><br><br>
 	</form>
-      
-  <a href="#finalpage" onclick="exampleFunction1()" class="w3-btn w3-grey">Take me to my results!</a>
-  <a href="#alternate" onclick="insertImages()" class="w3-btn w3-grey">Hobby Recommendation</a>
-  <a href="#alternate2" onclick="insertImages2()" class="w3-btn w3-grey">Mystery Box</a>
-
+     <!--Below are the available functions within the app, they will show up as buttons-->  
+  <a href="#finalpage" onclick="exampleFunction1();" class="w3-btn w3-grey">Addition</a>
+  <a href="#finalpage" onclick="exampleFunction2();" class="w3-btn w3-grey">Subtract</a> 
+  <a href="#finalpage" onclick="exampleFunction3();" class="w3-btn w3-grey">Multiplication</a>
+  <a href="#finalpage" onclick="exampleFunction4();" class="w3-btn w3-grey">Division</a>
+  <a href="#finalpage" onclick="exampleFunction5();" class="w3-btn w3-grey">Exponential</a>
+ <a href="#specialpage" onclick="insertImages();" class="w3-btn w3-grey">Special Button</a> 
     
   </center>
 </div>  
   
   
-<!--This is the alternate subpage.-->  
-<div id="alternate" class="page">
-	<!--Header.-->
-	<div id="alternateheader" class="w3-container w3-cyan">
-		<h1>Meditate</h1>
-	</div>
-	
-	<!--Main content of the page.-->
-	<center>
-	<div id="Main" class="w3-container">
-		<p id="Main2">Placeholder text!</p>
-	</div>
-	
-	<!--A link that runs a function when clicked and takes the user to a new page.-->
-	<a href="#content" onclick="resetVariables2()" class="w3-grey">Return to Home Page</a>
-	</center>
-									       
-</div>
+  
+
 	  
-<!--This is the alternate subpage 2.-->  
-<div id="alternate2" class="page">
-	<!--Header.-->
-	<div id="alternateheader2" class="w3-container w3-cyan">
-		<h1>Surprise!</h1>
-	</div>
-	
-	<!--Main content of the page.-->
-	<center>
-	<div id="Main3" class="w3-container">
-		<p id="Main4">Placeholder text!</p>
-	</div>
-	
-	<!--A link that runs a function when clicked and takes the user to a new page.-->
-	<a href="#content" onclick="resetVariables3()" class="w3-grey">Return to Home Page</a>
-	</center>
-									       
-</div>	  
+<!--Special Page where Smiley and frowny faces will display--> 
+	  <div id="specialpage" class="page">
+		  <!--header-->
+		  <div id="specialheader" class="w3-container w3-cyan">
+			  <h1>Smile!</h1>
+		  </div>
+		  
+		  <center>
+		  <!--Main content-->
+		  <div id="specialContent" class="w3-container"> 
+			  <p id="contentResult">Try again!</p>
+		  </div>
+		  <!--A link that takes the user to a new page-->
+		  
+		  <a href="#content" onclick="resetVariables();" class="w3-btn w3-grey">Return to Home Page</a>
+			 
+			  <center>
+	  </div>	
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-<!--LAST SUBPAGE-->
+  
+<!--Results SUBPAGE-->
 <div id="finalpage" class="page">
 	<div id="finalheader" class="w3-container w3-cyan">
-		<h1>Your results is..</h1>
+		<h1>Results</h1>
 	</div>
 	
   <center>
     
 	  <div id="finalcontent" class="w3-container">
-		  <p id="endResults">FINAL PAGE CONTENT GOES HERE</p>
+		  <p id="endResults">According to calculation...</p>
 	  </div>
   
-  
-  <a href="#content" onclick="resetVariables()" class="w3-btn w3-black">Return to Home Page</a>
+  <a class="w3-btn w3-black" onclick="exampleResultsFunction();">Click for result!
+    <br>
+    <img id="resultsButtonImg" src="https://i.imgur.com/2qcvDTK.png" width="30" alt="flower">
+	  
+  </a>
+  <a href="#content" onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
     
+ 
+<!--Choosing a vehicle SUBPAGE-->
+	<div id="two" class="page"> 
+	<div id="header2" class="w3-container w3-cyan">
+		<h1>Which interests you most? </p>
+		
+	</div>
+	
+	<center>
+	<!--Main content of the page-->
+		<div id="content3" class="w-3 container">
+			<p>Choose from the following</p>
+		</div>
+		
+		<center>
+	       
+		<!--User input--> 
+	       <a href="#three" class="w3-btn w3-cyan w3-round">Running </a>
+	  <!--Button for page 3--> 
+	       <a href="#four" class="w3-btn w3-cyan w3-round">Reading</a>
+			 <!--Button for page 4--> 
+	  <a href="#five" class="w3-btn w3-cyan w3-round">Sports</a>
+	  <!--Button for page 5--> 
+	  <a href="#six" class="w3-btn w3-cyan w3-round">Writing</a>
+	 <!--Button for page 6--> 
+	 <a href="#seven" class="w3-btn w3-cyan w3-round">Music</a>
+	 <!--Button for page 7--> 
+			
+	<a href=#content class="w3-btn w3-black"> Back to Homepage </a>
+		
+		<center> 
+		<br>
+		</div>
+
+
+	  
+<!--Sports car Subpage-->
+<div id="three" class="page">
+	<div id="header 3" class="w3-container w3-cyan">
+				  <h1><Running></p>
+			          <h1>✌𝓡𝓾𝓷𝓷𝓲𝓷𝓰✌</h1>
+			   </div>
+				
+
+		
+
+</body> 
+ <img src="https://i.imgur.com/3qKpXha.jpg" alt="Running">
+</html>
+	<a href=#content class="w3-btn w3-cyan"> Homepage </a>
+			
+		</div>	
+				
+<!--Convertible Subpage-->
+<div id="four" class="page">
+	<div id="header 4" class="w3-container w3-cyan">
+				  <h1><American Royals></p>
+			          <h1>𝓐𝓶𝓮𝓻𝓲𝓬𝓪𝓷 𝓡𝓸𝔂𝓪𝓵𝓼</h1>
+			   </div>
+				 
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/2HJ5kUF.png" alt="American Royals">
+</html>
+        <a href=#content class="w3-btn w3-cyan"> Homepage </a>		
+	  
+		</div>		
+							
+  <!--SUV Subpage-->
+<div id="five" class="page">
+	<div id="header 5" class="w3-container w3-cyan">
+				  <h1><Volleyball></p>
+			          <h1>𝓥𝓸𝓵𝓵𝓮𝔂𝓫𝓪𝓵𝓵</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/qoiSWvM.png" alt"Volleyball">
+</html>
+     <a href=#content class="w3-btn w3-cyan"> Homepage </a>		
+	  	  
+		</div>		
+
+ <!--Minivan Subpage-->
+<div id="six" class="page">
+	<div id="header 6" class="w3-container w3-cyan">
+				   <h1><writing></p>
+			          <h1>𝓦𝓻𝓲𝓽𝓲𝓷𝓰</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/LgC5O8k.png" alt="Writing">
+</html>
+    <a href=#content class="w3-btn w3-cyan"> Homepage </a>		
+	  
+	  
+		</div>
+
+ <!--Truck Subpage-->
+<div id="seven" class="page">
+	<div id="header 7" class="w3-container w3-cyan">
+				  <h1><One,Two, Buckle My Shoe></p>
+			          <h1>𝓞𝓷𝓮,𝓣𝔀𝓸, 𝓑𝓾𝓬𝓴𝓵𝓮 𝓜𝔂 𝓢𝓱𝓸𝓮</h1>
+			   </div>
+				
+			  
+					  
+					  
+					  
+</body>
+<img src="https://i.imgur.com/hdkqSj9.jpg" alt="One,Two, Buckle My Shoe">
+</html>
+   <a href=#content class="w3-btn w3-cyan"> Homepage </a>		
+	  
+	  
+		</div>
   </center>
 </div>
-  
-  
+
+		<center>
   
 <!--Footer!-->
 <footer class="w3-bottom w3-container w3-cyan">
-	<p>Thanks for participating!</p>
+	<p>Thank you for participating!</p>
 </footer>
 </div>
 
